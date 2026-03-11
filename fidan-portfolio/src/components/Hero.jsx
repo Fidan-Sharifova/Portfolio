@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useIsMobile, useIsTablet } from "../hooks/useWindowSize";
-
+import myPhoto from "../assets/me2.jpeg";
 export default function Hero({ setActive }) {
   const [imgError, setImgError] = useState(false);
   const isMobile = useIsMobile();
@@ -9,7 +9,7 @@ export default function Hero({ setActive }) {
 
   return (
     <section id="home" style={{
-minHeight: "calc(var(--vh, 1vh) * 100)",
+      minHeight: "calc(var(--vh, 1vh) * 100)",
       display: "flex",
       alignItems: "center",
       padding: isMobile ? "40px 24px 60px" : isTablet ? "100px 40px 60px" : "100px 60px 60px",
@@ -167,11 +167,12 @@ function ProfilePhoto({ imgError, setImgError, size }) {
       }}>
         {!imgError ? (
           <img
-            src="/src/assets/me2.jpeg"
+            src={myPhoto}
             alt="Profile"
             onError={() => setImgError(true)}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
+
         ) : (
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: size * 0.22 }}>👤</div>
